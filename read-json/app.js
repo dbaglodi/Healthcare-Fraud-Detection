@@ -1,8 +1,13 @@
 const fs = require('fs');
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const port = 3000;
-
+app.use(cors({
+  origin: '*', // Allow requests from your Angular app
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
+}));
 // File path for the JSON file
 const jsonFilePath = './fraud_predictions.json'; // Adjust the path if needed
 

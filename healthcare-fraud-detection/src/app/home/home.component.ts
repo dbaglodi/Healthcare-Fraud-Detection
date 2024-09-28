@@ -1,20 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
+import { PredictionService } from '../prediction.service';
+import { VertexAIService } from '../vertex-ai.service';
+import { BeneficiariesService } from '../beneficiaries.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   formVisible = false; // To track visibility of the Create ID form
   isIdSectionVisible = false; // To track visibility of the Create ID section
+  beneficiaries:any;
+  currentID:any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private predictionService:PredictionService, private vertexAIService:VertexAIService, private beneficiariesService:BeneficiariesService) {}
+
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  getData():void {
+    this.beneficiariesService.getData().subscribe(data => {
+      this.beneficiaries = data;
+    })
+  }
 
   // Method for handling 'Find ID' button click
-  findIdOld() {
-    console.log('Find ID button clicked');
+  findIdOld(id:string) {
+    console.log(this.beneficiaries.get(id));
   }
 
   // Method to toggle the Create ID section

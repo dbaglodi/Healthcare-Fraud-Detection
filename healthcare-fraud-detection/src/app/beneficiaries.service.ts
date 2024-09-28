@@ -17,7 +17,7 @@ export class BeneficiariesService {
     this.http.get<any>(this.apiUrl).subscribe(response => {
       this.metadataList = response;
       for (let item of this.metadataList) {
-        this.pairs.put(item.DESYNPUF_ID, {
+        this.pairs.set(item.DESYNPUF_ID, {
           CLM_ID: item.CLM_ID,
           SEGMENT: item.SEGMENT,
           CLM_FROM_DT: item.CLM_FROM_DT,

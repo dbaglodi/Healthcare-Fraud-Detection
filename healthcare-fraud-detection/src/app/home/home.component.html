@@ -3,8 +3,8 @@
 <div class="content">
     <div class="form-section">
         <h2>Enter ID</h2>
-        <input type="text" placeholder="Input text here" />
-        <button (click)="findIdOld()">Find ID</button>
+        <input type="text" placeholder="Input text here" [(ngModel)]="currentID" />
+        <button (click)="findIdOld(currentID)">Find ID</button>
         <div class="content">OR</div>
         <button (click)="createId()">Create ID</button>
     </div>
