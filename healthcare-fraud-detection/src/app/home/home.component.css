@@ -1,0 +1,86 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: center; /* Centers the content */
+    align-items: flex-start; /* Aligns content at the top */
+    gap: 150px; /* Adjusts space between sections */
+    width: 80%; /* Limits the width of the entire content area */
+    padding: 50px;
+  }
+  
+  .form-section, .image-section {
+    max-width: 300px; /* Limits width of both sections */
+  }
+  
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .form-section input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    width: 100%; /* Ensures input stretches to fit section width */
+  }
+  
+  .form-section button {
+    padding: 10px;
+    background-color: #ddd;
+    border: none;
+  }
+  
+  .image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .id-list p {
+    margin: 0;
+  }
+  
+  .auth-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+  }
+  
+  .auth-section a {
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
