@@ -12,28 +12,12 @@
       <li><a routerLink="/home">Home</a></li>
       <li><a routerLink="/model-info">Model Information</a></li>
       <li><a routerLink="/team">Team</a></li>
+      
     </ul>
   </nav>
 
-  <div class="content">
-    <div class="form-section">
-      <h2>Enter ID</h2>
-      <input type="text" placeholder="Input text here" />
-      <button>Create ID</button>
-    </div>
-    
-    <div class="image-section">
-      <div class="image-placeholder">IMAGE</div>
-      <div class="id-list">
-        <p>ASDFGHJKL</p>
-        <p>ASDFGHJKL;A</p>
-        <p>ASDFGHJKL</p>
-        <p>ASDFGHJKL</p>
-        <p>ASDFGHJKL</p>
-        <p>ASDFGHJKL</p>
-      </div>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
+
 
   <div class="auth-section">
     <a routerLink="/login">Log In</a> |
