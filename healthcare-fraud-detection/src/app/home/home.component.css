@@ -1,63 +1,68 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-  
-  nav ul {
+    align-items: flex-end; /* Align items to the right */
+    justify-content: flex-end; /* Align items to the bottom */
+    height: 100vh; /* Full height of the viewport */
+    padding: 20px; /* Add some padding around the container */
+}
+
+nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-  }
-  
-  nav ul li {
+}
+
+nav ul li {
     display: inline;
     margin-right: 20px;
-  }
-  
-  .content {
+}
+
+.content {
     display: flex;
-    justify-content: center; /* Centers the content */
+    justify-content: flex-end; /* Right-aligns the content */
     align-items: flex-start; /* Aligns content at the top */
-    gap: 150px; /* Adjusts space between sections */
+    gap: 50px; /* Adjusts space between sections */
     width: 80%; /* Limits the width of the entire content area */
     padding: 50px;
-  }
-  
-  .form-section, .image-section {
+}
+
+.form-section, .image-section {
     max-width: 300px; /* Limits width of both sections */
-  }
-  
-  .form-section {
+}
+
+.form-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-  
-  .form-section h2 {
+    align-items: flex-end; /* Aligns inputs and labels to the right */
+}
+
+.form-section h2 {
     margin-bottom: 10px;
-  }
-  
-  .form-section input {
+    text-align: right; /* Align header to the right */
+}
+
+.form-section input {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    width: 100%; /* Ensures input stretches to fit section width */
-  }
-  
-  .form-section button {
+    width: 200px; /* Fixed width for better alignment */
+}
+
+.form-section button {
     padding: 10px;
     background-color: #ddd;
     border: none;
-  }
-  
-  .image-section {
+    margin-top: 10px; /* Space above the button */
+}
+
+.image-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .image-placeholder {
+}
+
+.image-placeholder {
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -66,21 +71,49 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-  }
-  
-  .id-list p {
+}
+
+.id-list p {
     margin: 0;
-  }
-  
-  .auth-section {
+}
+
+.auth-section {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 16px;
-  }
-  
-  .auth-section a {
+}
+
+.auth-section a {
     margin-right: 10px;
     text-decoration: none;
-  }
-  
+}
+
+/* Add styles for the new ID section at the bottom */
+.create-id-section {
+    width: 100%; /* Full width for better alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligns the form section to the right */
+}
+
+.create-id-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align inputs to the right */
+}
+
+.create-id-form div {
+    margin-bottom: 10px; /* Space between labels and inputs */
+    width: 100%; /* Ensures inputs stretch to fit */
+}
+
+.create-id-form label {
+    margin-right: 10px; /* Space between label and input */
+}
+
+.create-id-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 200px; /* Set a fixed width for inputs */
+}
