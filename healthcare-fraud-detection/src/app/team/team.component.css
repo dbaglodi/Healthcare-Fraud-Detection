@@ -38,9 +38,27 @@
     height: 150px;            /* Set image height, making it a square */
     object-fit: cover;        /* Makes the image fill the square frame */
     margin-bottom: 10px;
+    transition: filter 0.4s ease, transform 0.4s ease; /* Smooth transition for filter and highlight */
   }
   
   p {
     font-size: 16px;
   }
   
+  /* Link styling */
+  a {
+    text-decoration: none;   /* Remove underline for the link */
+    color: inherit;          /* Keep the text color the same as normal text */
+  }
+  
+  /* Hover effect to blur other images */
+  .team-container:hover .team-image {
+    filter: grayscale(100%) blur(2px); /* Make all images blurry and grayscale */
+    transform: scale(1);                /* Ensure other images stay at normal size */
+  }
+  
+  /* Keep the hovered image normal */
+  .team-member:hover .team-image {
+    filter: none;                        /* Remove grayscale and blur from the hovered image */
+    transform: scale(1.05);              /* Slightly enlarge the hovered image for highlighting */
+  }
