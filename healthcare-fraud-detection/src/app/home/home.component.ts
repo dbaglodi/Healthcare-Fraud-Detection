@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   isIdSectionVisible = false; // To track visibility of the Create ID section
   beneficiaries:any;
   currentID:any;
-  fraud:any;
+  fraud:any = "";
 
   constructor(private router: Router, private predictionService:PredictionService, private vertexAIService:VertexAIService, private beneficiariesService:BeneficiariesService) {}
 
@@ -31,7 +31,11 @@ export class HomeComponent implements OnInit {
   // Method for handling 'Find ID' button click
   findIdOld(id:string) {
     console.log(this.beneficiaries.get(id));
-    this.fraud = (this.beneficiaries.get(id).fraud_prediction == -1)? "Fraud" : "Not Fraud";
+    if (this.beneficiaries.has(this.currentID)) {
+      this.fraud = (this.beneficiaries.get(id).fraud_prediction == -1)? "Fraud" : "Not Fraud";
+    } else {
+      this.fraud = "";
+    }
   }
 
   // Method to toggle the Create ID section
