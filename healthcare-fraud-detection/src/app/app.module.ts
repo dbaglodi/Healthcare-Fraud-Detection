@@ -10,6 +10,8 @@ import { ModelInfoComponent } from './model-info/model-info.component';
 import { TeamComponent } from './team/team.component';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { FindIdComponent } from './home/get-id-button';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     ModelInfoComponent,
     TeamComponent,
     LoginComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    FindIdComponent
   ],
   imports: [
     BrowserModule,
