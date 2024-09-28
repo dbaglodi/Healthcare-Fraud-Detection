@@ -49,8 +49,18 @@ export class HomeComponent {
         this.prediction = data.prediction;
       });
   }
-  generateText() {
-    const prompt = 'Hello world!';
+  generateText(CLM_PMT_AMT:any, NCH_PRMRY_PYR_CLM_PD_AMT:any, CLM_PASS_THRU_PER_DIEM_AMT:any, NCH_BENE_IP_DDCTBL_AMT:any, NCH_BENE_PTA_COINSRNC_LBLTY_AM:any, NCH_BENE_BLOOD_DDCTBL_LBLTY_AM:any, CLM_UTLZTN_DAY_CNT:any, PRVDR_NUM:any, NUM_OCCURENCES:any) {
+    const prompt = `Given the following parameters for an inpatient beneficiary:
+  [Claim Payment Amount: ${CLM_PMT_AMT},
+  NCH  Primary Payer Claim Paid Amount: ${NCH_PRMRY_PYR_CLM_PD_AMT},
+  Claim Pass Thru Per Diem Amount: ${CLM_PASS_THRU_PER_DIEM_AMT},
+  NCH Beneficiary Inpatient Deductible Amount: ${NCH_BENE_IP_DDCTBL_AMT},
+  NCH Beneficiary Part A Coinsurance Liability Amount: ${NCH_BENE_PTA_COINSRNC_LBLTY_AM},
+  NCH Beneficiary Blood Deductible Liability Amount: ${NCH_BENE_BLOOD_DDCTBL_LBLTY_AM},
+  Claim Utilization Day Count: ${CLM_UTLZTN_DAY_CNT},
+  Provider Institution: ${PRVDR_NUM}
+  Frequency of Beneficiary Code: ${NUM_OCCURENCES}],
+  explain why this beneficiary's claim is likely to be fraud. Limit your output to at most 3 sentences.`;
     this.vertexAIService.generateText(prompt).subscribe((response: any) => {
       this.response = response.predictions[0];
     });
