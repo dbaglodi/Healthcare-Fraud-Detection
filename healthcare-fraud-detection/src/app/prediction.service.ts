@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PredictionService {
-  private apiUrl = 'http://0.0.0.0:8000'; // Change port if needed
+  private apiUrl = 'http://127.0.0.1:5000'; // Change port if needed
 
   constructor(private http: HttpClient) {}
 
-  predict(inputData: any): Observable<any> {
+  getPrediction(inputData: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, { input: inputData });
   }
 }
