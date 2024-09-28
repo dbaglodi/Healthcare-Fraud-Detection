@@ -1,0 +1,46 @@
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 28px;
+  }
+  
+  p {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 18px;
+  }
+  
+  /* Team member grid */
+  .team-container {
+    display: flex;
+    justify-content: center;  /* Centers all team members */
+    align-items: center;      /* Aligns the items vertically in the center */
+    gap: 30px;                /* Adds space between each member */
+    margin-top: 30px;
+  }
+  
+  .team-member {
+    display: flex;
+    flex-direction: column;   /* Stack the image and name vertically */
+    align-items: center;
+    text-align: center;
+  }
+  
+  .team-image {
+    width: 150px;             /* Set image width */
+    height: 150px;            /* Set image height, making it a square */
+    object-fit: cover;        /* Makes the image fill the square frame */
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+  
