@@ -26,4 +26,11 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('healthcare-fraud-detection app is running!');
   });
+  it('should have navigation links', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('nav ul li a')?.textContent).toContain('Home');
+  });
+  
 });
