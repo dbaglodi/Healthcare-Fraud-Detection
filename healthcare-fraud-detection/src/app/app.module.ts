@@ -10,7 +10,8 @@ import { ModelInfoComponent } from './model-info/model-info.component';
 import { TeamComponent } from './team/team.component';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
-import { FindIdComponent } from './home/get-id-button';
+import { HttpClientModule } from '@angular/common/http';
+// import { FindIdComponent } from './home/get-id-button';
 
 
 @NgModule({
@@ -20,12 +21,13 @@ import { FindIdComponent } from './home/get-id-button';
     ModelInfoComponent,
     TeamComponent,
     LoginComponent,
-    CreateAccountComponent,
-    FindIdComponent
+    CreateAccountComponent
+    // FindIdComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
