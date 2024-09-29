@@ -1,38 +1,37 @@
 <!-- <p>home works!</p> -->
 
 <div class="content">
+    <!-- Form Section: Right-aligned Enter ID form -->
     <div class="form-section">
         <h2>Enter ID</h2>
         <input type="text" placeholder="Input text here" [(ngModel)]="currentID" />
         <button (click)="findIdOld(currentID)">Find ID</button>
-        <div class="content">OR</div>
+        
+        <div class="or-text">OR</div> <!-- OR Text -->
+        
         <button (click)="createId()">Create ID</button>
     </div>
 
-    <br>
-    <br>
-
+    <!-- Spacing using CSS instead of <br> -->
+    
+    <!-- Image Section -->
     <div class="image-section">
-        <div class="image-placeholder">{{fraud}}</div>
+        <div class="image-placeholder">{{fraud}}</div> <!-- Circular placeholder -->
         <div class="id-list">
-            <p>ASDFGHJKL</p>
-            <p>ASDFGHJKL;A</p>
-            <p>ASDFGHJKL</p>
-            <p>ASDFGHJKL</p>
-            <p>ASDFGHJKL</p>
-            <p>ASDFGHJKL</p>
+            
         </div>
     </div>
 
-    <!-- Section for new ID form -->
+    <!-- Section for New ID form (will be populated dynamically) -->
     <div id="newIdSection" class="create-id-section"></div>
 
-    <!-- Detect Fraud Button -->
+    <!-- Detect Fraud Button, shown when formVisible is true -->
     <div *ngIf="formVisible" class="detect-fraud-section">
         <button (click)="detectFraud()">Detect Fraud</button>
     </div>
 
+    <!-- Save ID Button, shown when isIdSectionVisible is true -->
     <div *ngIf="isIdSectionVisible" class="detect-fraud-section">
-      <button id="saveIdButton" (click)="saveIdForm()">Save ID</button>
-  </div>
+        <button id="saveIdButton" (click)="saveIdForm()">Save ID</button>
+    </div>
 </div>

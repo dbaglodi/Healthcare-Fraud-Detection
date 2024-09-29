@@ -1,3 +1,4 @@
+/* Container adjustments for right alignment */
 .container {
     display: flex;
     flex-direction: column;
@@ -7,6 +8,7 @@
     padding: 20px; /* Add some padding around the container */
 }
 
+/* Navigation styles */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -18,102 +20,158 @@ nav ul li {
     margin-right: 20px;
 }
 
+/* Content section right alignment and spacing */
 .content {
     display: flex;
     justify-content: flex-end; /* Right-aligns the content */
     align-items: flex-start; /* Aligns content at the top */
-    gap: 50px; /* Adjusts space between sections */
+    gap: 150px; /* Adjusts space between sections */
     width: 80%; /* Limits the width of the entire content area */
-    padding: 50px;
+    padding: 80px;
 }
 
+/* Form and image sections with max width */
 .form-section, .image-section {
     max-width: 300px; /* Limits width of both sections */
 }
 
+/* Right-aligned form elements */
 .form-section {
     display: flex;
     flex-direction: column;
     align-items: flex-end; /* Aligns inputs and labels to the right */
+    gap: 0.5px; /* Space between form elements for cleaner look */
 }
 
 .form-section h2 {
-    margin-bottom: 10px;
-    text-align: right; /* Align header to the right */
+    margin: 0 0 10px 0;
+    text-align: left; /* Align header to the right */
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Darker color for the heading */
 }
 
+/* Input text box with right-aligned text */
 .form-section input {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    width: 200px; /* Fixed width for better alignment */
+    border-radius: 4px;
+    width: 150px; /* Fixed width for better alignment */
+    text-align: left; /* Align input text to the right */
+    font-size: 14px;
 }
 
+/* Button styles with same color as the circle */
 .form-section button {
     padding: 10px;
-    background-color: #ddd;
+    background-color: #37B479; /* Same color as the circle */
+    color: white;
     border: none;
-    margin-top: 10px; /* Space above the button */
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
 }
 
+.form-section button:hover {
+    background-color: #2e9562; /* Darker shade on hover */
+}
+
+/* Styling for OR text */
+.or-text {
+    
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0; /* Adds space above and below "OR" */
+    text-align: center; 
+    color: #333; /* Darker color for emphasis */
+}
+
+/* Create ID section styling */
+.create-id-section {
+    width: 100%; /* Full width for better alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligns the form section to the right */
+    gap: 10px; /* Adds space between elements */
+}
+
+/* Right-aligned create ID form */
+.create-id-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Input field in the Create ID form */
+.create-id-form input {
+    padding: 10px;
+    border: 1px solid #37B479;
+    border-radius: 4px;
+    width: 200px; /* Fixed width */
+    text-align: right; /* Aligns text to the right */
+}
+
+/* Button styling for the Create ID form */
+.create-id-form button {
+    padding: 10px;
+    background-color: #37B479; /* Same color as the circle */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+}
+
+.create-id-form button:hover {
+    background-color: #2e9562; /* Darker shade on hover */
+}
+
+/* Image section for profile */
 .image-section {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Circle placeholder with matching color */
 .image-placeholder {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: #ddd;
+    background-color: #37B479; /* Color for the circle */
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
 }
 
+/* ID list styling */
 .id-list p {
     margin: 0;
 }
 
-.auth-section {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 16px;
-}
-
-.auth-section a {
-    margin-right: 10px;
-    text-decoration: none;
-}
-
-/* Add styles for the new ID section at the bottom */
-.create-id-section {
-    width: 100%; /* Full width for better alignment */
+/* Styling for Save ID Button */
+.detect-fraud-section {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Aligns the form section to the right */
+    justify-content: flex-end; /* Align button to the right */
+    margin-top: 20px; /* Add some spacing from the top */
 }
 
-.create-id-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Align inputs to the right */
-}
-
-.create-id-form div {
-    margin-bottom: 10px; /* Space between labels and inputs */
-    width: 100%; /* Ensures inputs stretch to fit */
-}
-
-.create-id-form label {
-    margin-right: 10px; /* Space between label and input */
-}
-
-.create-id-form input {
+#saveIdButton {
     padding: 10px;
-    border: 1px solid #ccc;
-    width: 200px; /* Set a fixed width for inputs */
+    background-color: #37B479; /* Same color as the circle */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+}
+
+#saveIdButton:hover {
+    background-color: #2e9562; /* Darker shade on hover */
 }
