@@ -31,4 +31,8 @@
     <div *ngIf="formVisible" class="detect-fraud-section">
         <button (click)="detectFraud()">Detect Fraud</button>
     </div>
+
+    <div *ngIf="isIdSectionVisible" class="detect-fraud-section">
+      <button id="saveIdButton" (click)="saveIdForm()">Save ID</button>
+  </div>
 </div>
