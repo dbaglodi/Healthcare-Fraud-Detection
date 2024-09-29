@@ -16,12 +16,7 @@ def predict():
     prediction = model.predict([input_data])
 
     # Return the prediction as JSON
-    p = prediction[0]
-    if p == -1:
-        p = 'Fraud'
-    else:
-        p = 'Not Fraud'
-    return jsonify({'prediction': p})
+    return jsonify({'prediction': prediction[0]})
 
 if __name__ == '__main__':
     app.run(debug=True)
