@@ -132,6 +132,7 @@ export class HomeComponent implements OnInit {
       });
   
       console.log('Form data:', formData);
+      console.log('stringified', JSON.stringify(formData));
       
       // Here you can send the data to a server or process it as needed
       // For example:
@@ -140,7 +141,7 @@ export class HomeComponent implements OnInit {
       // Or save it to local storage:
       localStorage.setItem('idFormData', JSON.stringify(formData));
 
-      this.findIdOld(localStorage.getItem('idFormData')!)
+      this.loadModel()
   
       alert('ID data saved successfully!');
     } else {
@@ -159,7 +160,7 @@ export class HomeComponent implements OnInit {
         
         // First check if the input is empty
         if (input.value.trim() === "") {
-          console.error("Missing entry for input with ID:", input.id);
+          // alert("Missing entry for input");
           isValid = false;
           return;  // Exit the loop early if a field is invalid
         }
@@ -167,19 +168,65 @@ export class HomeComponent implements OnInit {
         // Check if input value can be converted to a valid number
         const valueAsNumber = Number(input.value);
         if (isNaN(valueAsNumber)) {
-          console.error("Input is not a valid number for input with ID:", input.id);
+          // alert("Input is not a valid number for input");
           isValid = false;
           return;
         }
       });
     } else {
-      console.error("newIdSection not found");
+      // alert("newIdSection not found");
       isValid = false;
+    }
+
+    if (!isValid) {
+      alert("Invalid Input. Inputs should be non-empty and numerical.");
     }
   
     return isValid;
   }
   
+
+  loadModel() {
+    const idFormData = localStorage.getItem('idFormData');
+    if (idFormData !== null) {
+      const parsedData = JSON.parse(idFormData);
+
+      //process string data to relevant data types
+      const processedData = {
+        CLM_PMT_AMT: parseFloat(parsedData.CLM_PMT_AMT),
+        NCH_PRMRY_PYR_CLM_PD_AMT: parseFloat(parsedData.NCH_PRMRY_PYR_CLM_PD_AMT),
+        AT_PHYSN_NPI: parseInt(parsedData.AT_PHYSN_NPI, 10),
+        OP_PHYSN_NPI: parseInt(parsedData.OP_PHYSN_NPI, 10),
+        OT_PHYSN_NPI: parseInt(parsedData.OT_PHYSN_NPI, 10),
+        CLM_PASS_THRU_PER_DIEM_AMT: parseFloat(parsedData.CLM_PASS_THRU_PER_DIEM_AMT),
+        NCH_BENE_IP_DDCTBL_AMT: parseFloat(parsedData.NCH_BENE_IP_DDCTBL_AMT),
+        NCH_BENE_PTA_COINSRNC_LBLTY_AM: parseFloat(parsedData.NCH_BENE_PTA_COINSRNC_LBLTY_AM),
+        NCH_BENE_BLOOD_DDCTBL_LBLTY_AM: parseFloat(parsedData.NCH_BENE_BLOOD_DDCTBL_LBLTY_AM),
+        CLM_UTLZTN_DAY_CNT: parseInt(parsedData.CLM_UTLZTN_DAY_CNT, 10),
+        PRVDR_NUM_HASH: parseInt(parsedData.PRVDR_NUM_HASH, 10),
+        NUM_OCCURENCES: parseInt(parsedData.NUM_OCCURENCES, 10),
+      };
+
+      console.log(JSON.stringify(processedData));
+
+      fetch('http://localhost:5000/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ input: processedData })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Response from Python:', data);
+        const result = data['prediction']
+        this.fraud = (result == -1)? "Fraud" : "Not Fraud";
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    }
+  }
 
 
 
