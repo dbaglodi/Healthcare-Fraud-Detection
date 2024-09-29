@@ -123,8 +123,9 @@ export class HomeComponent implements OnInit {
   saveIdForm() {
     const formData: { [key: string]: string } = {};
     const newIdSection = document.getElementById('newIdSection');
+    let isValid: boolean = this.validateData();
     
-    if (newIdSection) {
+    if (newIdSection && isValid) {
       const inputs = newIdSection.querySelectorAll('input');
       inputs.forEach((input: HTMLInputElement) => {
         formData[input.id] = input.value;
@@ -138,12 +139,49 @@ export class HomeComponent implements OnInit {
   
       // Or save it to local storage:
       localStorage.setItem('idFormData', JSON.stringify(formData));
+
+      this.findIdOld(localStorage.getItem('idFormData')!)
   
       alert('ID data saved successfully!');
     } else {
-      console.error('newIdSection not found');
+      console.error('Error with submission');
     }
   }
+
+  validateData() {
+    const newIdSection = document.getElementById('newIdSection');
+    let isValid = true;
+  
+    if (newIdSection) {
+      const inputs = newIdSection.querySelectorAll('input');
+      
+      inputs.forEach((input: HTMLInputElement) => {
+        
+        // First check if the input is empty
+        if (input.value.trim() === "") {
+          console.error("Missing entry for input with ID:", input.id);
+          isValid = false;
+          return;  // Exit the loop early if a field is invalid
+        }
+        
+        // Check if input value can be converted to a valid number
+        const valueAsNumber = Number(input.value);
+        if (isNaN(valueAsNumber)) {
+          console.error("Input is not a valid number for input with ID:", input.id);
+          isValid = false;
+          return;
+        }
+      });
+    } else {
+      console.error("newIdSection not found");
+      isValid = false;
+    }
+  
+    return isValid;
+  }
+  
+
+
 
   // saveIdForm() {
   //   // const newIdSection = document.getElementById('newIdSection');
